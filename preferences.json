@@ -14,7 +14,7 @@
 		"type": "checkbox",
 		"property": "active_tab_manager.outline_enabled",
 		"label": "Enable",
-		"defaultValue": true
+		"defaultValue": false
 	},
 	{
 		"type": "string",
@@ -27,7 +27,7 @@
 	{
 		"type": "string",
 		"property": "active_tab_manager.outline_colour",
-		"label": "Colour (hex with #)",
+		"label": "Colour (hex)",
 		"defaultValue": "#575757",
 		"placeholder": "#575757",
 		"conditions": [{ "if": { "property": "active_tab_manager.outline_enabled", "value": true } }]
@@ -49,27 +49,15 @@
 		"type": "checkbox",
 		"property": "active_tab_manager.tab_enabled",
 		"label": "Enable",
-		"defaultValue": true
-	},
-	{
-		"type": "checkbox",
-		"property": "active_tab_manager.tab_use_colour",
-		"label": "Colour",
 		"defaultValue": false
 	},
 	{
 		"type": "string",
 		"property": "active_tab_manager.tab_colour",
-		"label": "Colour (hex with #)",
+		"label": "Colour (hex)",
 		"defaultValue": "#000000",
 		"placeholder": "#000000",
-		"conditions": [{ "if": { "property": "active_tab_manager.tab_use_colour", "value": true } }]
-	},
-	{
-		"type": "checkbox",
-		"property": "active_tab_manager.tab_use_opacity",
-		"label": "Opacity",
-		"defaultValue": false
+		"conditions": [{ "if": { "property": "active_tab_manager.tab_enabled", "value": true } }]
 	},
 	{
 		"type": "string",
@@ -77,32 +65,30 @@
 		"label": "Opacity (1 to 100)",
 		"defaultValue": "100",
 		"placeholder": "100",
-		"conditions": [{ "if": { "property": "active_tab_manager.tab_use_opacity", "value": true } }]
-	},
-	{
-		"type": "checkbox",
-		"property": "active_tab_manager.tab_gradient",
-		"label": "Gradient",
-		"defaultValue": true
+		"conditions": [{ "if": { "property": "active_tab_manager.tab_enabled", "value": true } }]
 	},
 	{
 		"type": "dropdown",
-		"property": "active_tab_manager.gradient_direction",
-		"label": "Gradient direction",
-		"defaultValue": "horizontal",
+		"property": "active_tab_manager.gradient",
+		"label": "Gradient",
+		"defaultValue": "none",
 		"options": [
+			{ "label": "None", "value": "none" },
 			{ "label": "Horizontal", "value": "horizontal" },
 			{ "label": "Vertical", "value": "vertical" }
 		],
-		"conditions": [{ "if": { "property": "active_tab_manager.tab_gradient", "value": true } }]
+		"conditions": [{ "if": { "property": "active_tab_manager.tab_enabled", "value": true } }]
 	},
 	{
 		"type": "string",
 		"property": "active_tab_manager.grad_start_colour",
-		"label": "Start colour (hex with #)",
+		"label": "Start colour (hex)",
 		"defaultValue": "#000000",
 		"placeholder": "#000000",
-		"conditions": [{ "if": { "property": "active_tab_manager.tab_gradient", "value": true } }]
+		"conditions": [
+			{ "if": { "property": "active_tab_manager.gradient", "value": "horizontal" } },
+			{ "if": { "property": "active_tab_manager.gradient", "value": "vertical" } }
+		]
 	},
 	{
 		"type": "string",
@@ -110,15 +96,21 @@
 		"label": "Start colour opacity (1 to 100)",
 		"defaultValue": "30",
 		"placeholder": "30",
-		"conditions": [{ "if": { "property": "active_tab_manager.tab_gradient", "value": true } }]
+		"conditions": [
+			{ "if": { "property": "active_tab_manager.gradient", "value": "horizontal" } },
+			{ "if": { "property": "active_tab_manager.gradient", "value": "vertical" } }
+		]
 	},
 	{
 		"type": "string",
 		"property": "active_tab_manager.grad_end_colour",
-		"label": "End colour (hex with #)",
+		"label": "End colour (hex)",
 		"defaultValue": "#646464",
 		"placeholder": "#646464",
-		"conditions": [{ "if": { "property": "active_tab_manager.tab_gradient", "value": true } }]
+		"conditions": [
+			{ "if": { "property": "active_tab_manager.gradient", "value": "horizontal" } },
+			{ "if": { "property": "active_tab_manager.gradient", "value": "vertical" } }
+		]
 	},
 	{
 		"type": "string",
@@ -126,13 +118,20 @@
 		"label": "End colour opacity (1 to 100)",
 		"defaultValue": "30",
 		"placeholder": "30",
-		"conditions": [{ "if": { "property": "active_tab_manager.tab_gradient", "value": true } }]
+		"conditions": [
+			{ "if": { "property": "active_tab_manager.gradient", "value": "horizontal" } },
+			{ "if": { "property": "active_tab_manager.gradient", "value": "vertical" } }
+		]
 	},
 	{
 		"type": "checkbox",
 		"property": "active_tab_manager.tab_use_theme",
-		"label": "Theme colour (your theme colour is the base colour)",
-		"defaultValue": true
+		"label": "Theme colour (your theme colour will be the base colour)",
+		"defaultValue": false,
+		"conditions": [
+			{ "if": { "property": "active_tab_manager.gradient", "value": "horizontal" } },
+			{ "if": { "property": "active_tab_manager.gradient", "value": "vertical" } }
+		]
 	},
 	{
 		"type": "separator",
@@ -143,7 +142,7 @@
 		"type": "checkbox",
 		"property": "active_tab_manager.radius_enabled",
 		"label": "Enable",
-		"defaultValue": true
+		"defaultValue": false
 	},
 	{
 		"type": "string",
@@ -162,12 +161,12 @@
 		"type": "checkbox",
 		"property": "active_tab_manager.pinned_colour_enabled",
 		"label": "Pinned tab background colour",
-		"defaultValue": true
+		"defaultValue": false
 	},
 	{
 		"type": "string",
 		"property": "active_tab_manager.pinned_colour",
-		"label": "Pinned colour (hex with #)",
+		"label": "Pinned colour (hex)",
 		"defaultValue": "#FFFFFF",
 		"placeholder": "#FFFFFF",
 		"conditions": [{ "if": { "property": "active_tab_manager.pinned_colour_enabled", "value": true } }]
@@ -176,7 +175,7 @@
 		"type": "checkbox",
 		"property": "active_tab_manager.pinned_opacity_enabled",
 		"label": "Pinned tab background opacity",
-		"defaultValue": true
+		"defaultValue": false
 	},
 	{
 		"type": "string",
@@ -195,7 +194,7 @@
 	{
 		"type": "string",
 		"property": "active_tab_manager.essential_colour",
-		"label": "Essential colour (hex with #)",
+		"label": "Essential colour (hex)",
 		"defaultValue": "#FFFFFF",
 		"placeholder": "#FFFFFF",
 		"conditions": [{ "if": { "property": "active_tab_manager.essential_colour_enabled", "value": true } }]
