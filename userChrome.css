@@ -19,9 +19,9 @@
 	--atm-gradient: none;
 	--atm-gradient-dir: to right;
 	--atm-pin-colour: #ffffff;
-	--atm-pin-opacity: 10;
+	--atm-pin-opacity: 100;
 	--atm-ess-colour: #ffffff;
-	--atm-ess-opacity: 10;
+	--atm-ess-opacity: 100;
 }
 
 @media (-moz-pref("active_tab_manager.outline_enabled")) {
