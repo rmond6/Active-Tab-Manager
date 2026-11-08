@@ -1,0 +1,16 @@
+{
+	"id": "active-tab-manager",
+	"name": "Active Tab Manager",
+	"description": "Customise the selected tab's outline, colour, gradient and corner radius, plus pinned and essential tab backgrounds.",
+	"homepage": "https://github.com/rmond6/Active-Tab-Manager",
+	"style": {
+		"chrome": "userChrome.css"
+	},
+	"preferences": "preferences.json",
+	"author": "rmond6",
+	"version": "1.0.0",
+	"tags": ["tab", "active tab", "outline", "gradient", "radius", "pinned"],
+	"createdAt": "2026-11-08",
+	"updatedAt": "2026-11-08",
+	"fork": ["zen"]
+}

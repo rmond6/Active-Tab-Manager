@@ -1,0 +1,114 @@
+@property --active_tab_manager-outline_thickness { syntax: "<number>"; inherits: true; initial-value: 1; }
+@property --active_tab_manager-outline_colour { syntax: "<color>"; inherits: true; initial-value: #575757; }
+@property --active_tab_manager-outline_opacity { syntax: "<number>"; inherits: true; initial-value: 100; }
+@property --active_tab_manager-tab_colour { syntax: "<color>"; inherits: true; initial-value: #000000; }
+@property --active_tab_manager-tab_opacity { syntax: "<number>"; inherits: true; initial-value: 100; }
+@property --active_tab_manager-grad_start_colour { syntax: "<color>"; inherits: true; initial-value: #000000; }
+@property --active_tab_manager-grad_start_opacity { syntax: "<number>"; inherits: true; initial-value: 30; }
+@property --active_tab_manager-grad_end_colour { syntax: "<color>"; inherits: true; initial-value: #646464; }
+@property --active_tab_manager-grad_end_opacity { syntax: "<number>"; inherits: true; initial-value: 30; }
+@property --active_tab_manager-radius { syntax: "<number>"; inherits: true; initial-value: 8; }
+@property --active_tab_manager-pinned_colour { syntax: "<color>"; inherits: true; initial-value: #ffffff; }
+@property --active_tab_manager-pinned_opacity { syntax: "<number>"; inherits: true; initial-value: 10; }
+@property --active_tab_manager-essential_colour { syntax: "<color>"; inherits: true; initial-value: #ffffff; }
+@property --active_tab_manager-essential_opacity { syntax: "<number>"; inherits: true; initial-value: 10; }
+
+:root {
+	--atm-base: transparent;
+	--atm-alpha: 1;
+	--atm-gradient: none;
+	--atm-gradient-dir: to right;
+	--atm-pin-colour: #ffffff;
+	--atm-pin-opacity: 10;
+	--atm-ess-colour: #ffffff;
+	--atm-ess-opacity: 10;
+}
+
+@media (-moz-pref("active_tab_manager.outline_enabled")) {
+	.tabbrowser-tab[selected] .tab-background {
+		box-shadow: inset 0 0 0 calc(var(--active_tab_manager-outline_thickness) * 1px)
+			rgb(from var(--active_tab_manager-outline_colour) r g b / calc(clamp(0, var(--active_tab_manager-outline_opacity), 100) / 100)) !important;
+	}
+}
+
+@media (-moz-pref("active_tab_manager.tab_enabled")) {
+	@media (-moz-pref("active_tab_manager.tab_use_opacity")) {
+		:root {
+			--atm-alpha: calc(clamp(0, var(--active_tab_manager-tab_opacity), 100) / 100);
+		}
+	}
+
+	@media (-moz-pref("active_tab_manager.tab_use_colour")) {
+		:root {
+			--atm-base: rgb(from var(--active_tab_manager-tab_colour) r g b / var(--atm-alpha));
+		}
+	}
+
+	@media (-moz-pref("active_tab_manager.tab_use_theme")) {
+		:root {
+			--atm-base: rgb(from var(--zen-primary-color) r g b / var(--atm-alpha));
+		}
+	}
+
+	@media (-moz-pref("active_tab_manager.gradient_direction", "vertical")) {
+		:root {
+			--atm-gradient-dir: to bottom;
+		}
+	}
+
+	@media (-moz-pref("active_tab_manager.tab_gradient")) {
+		:root {
+			--atm-gradient: linear-gradient(
+				var(--atm-gradient-dir),
+				rgb(from var(--active_tab_manager-grad_start_colour) r g b / calc(clamp(0, var(--active_tab_manager-grad_start_opacity), 100) / 100)),
+				rgb(from var(--active_tab_manager-grad_end_colour) r g b / calc(clamp(0, var(--active_tab_manager-grad_end_opacity), 100) / 100))
+			);
+		}
+	}
+
+	.tabbrowser-tab[selected] .tab-background {
+		background: var(--atm-gradient), var(--atm-base) !important;
+	}
+}
+
+@media (-moz-pref("active_tab_manager.radius_enabled")) {
+	#tabbrowser-tabs {
+		--border-radius-medium: calc(clamp(0, var(--active_tab_manager-radius), 20) * 1px) !important;
+	}
+}
+
+@media (-moz-pref("active_tab_manager.pinned_colour_enabled")) {
+	:root {
+		--atm-pin-colour: var(--active_tab_manager-pinned_colour);
+	}
+}
+
+@media (-moz-pref("active_tab_manager.pinned_opacity_enabled")) {
+	:root {
+		--atm-pin-opacity: var(--active_tab_manager-pinned_opacity);
+	}
+}
+
+@media (-moz-pref("active_tab_manager.pinned_colour_enabled")), (-moz-pref("active_tab_manager.pinned_opacity_enabled")) {
+	.tabbrowser-tab[pinned]:not([selected], [zen-essential]) .tab-background {
+		background: rgb(from var(--atm-pin-colour) r g b / calc(clamp(0, var(--atm-pin-opacity), 100) / 100)) !important;
+	}
+}
+
+@media (-moz-pref("active_tab_manager.essential_colour_enabled")) {
+	:root {
+		--atm-ess-colour: var(--active_tab_manager-essential_colour);
+	}
+}
+
+@media (-moz-pref("active_tab_manager.essential_opacity_enabled")) {
+	:root {
+		--atm-ess-opacity: var(--active_tab_manager-essential_opacity);
+	}
+}
+
+@media (-moz-pref("active_tab_manager.essential_colour_enabled")), (-moz-pref("active_tab_manager.essential_opacity_enabled")) {
+	.tabbrowser-tab[zen-essential="true"]:not([selected]) .tab-background {
+		background: rgb(from var(--atm-ess-colour) r g b / calc(clamp(0, var(--atm-ess-opacity), 100) / 100)) !important;
+	}
+}

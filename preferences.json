@@ -1,0 +1,217 @@
+[
+	{
+		"type": "text",
+		"label": "Active Tab Manager (v1.0)",
+		"margin": "8px 4px",
+		"size": "1.2em"
+	},
+	{
+		"type": "separator",
+		"label": "🔳 Tab outline",
+		"margin": "14px 0"
+	},
+	{
+		"type": "checkbox",
+		"property": "active_tab_manager.outline_enabled",
+		"label": "Enable",
+		"defaultValue": true
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.outline_thickness",
+		"label": "Thickness (px)",
+		"defaultValue": "1",
+		"placeholder": "1",
+		"conditions": [{ "if": { "property": "active_tab_manager.outline_enabled", "value": true } }]
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.outline_colour",
+		"label": "Colour (hex with #)",
+		"defaultValue": "#575757",
+		"placeholder": "#575757",
+		"conditions": [{ "if": { "property": "active_tab_manager.outline_enabled", "value": true } }]
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.outline_opacity",
+		"label": "Opacity (1 to 100)",
+		"defaultValue": "100",
+		"placeholder": "100",
+		"conditions": [{ "if": { "property": "active_tab_manager.outline_enabled", "value": true } }]
+	},
+	{
+		"type": "separator",
+		"label": "🟧 Tab colour",
+		"margin": "14px 0"
+	},
+	{
+		"type": "checkbox",
+		"property": "active_tab_manager.tab_enabled",
+		"label": "Enable",
+		"defaultValue": true
+	},
+	{
+		"type": "checkbox",
+		"property": "active_tab_manager.tab_use_colour",
+		"label": "Colour",
+		"defaultValue": false
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.tab_colour",
+		"label": "Colour (hex with #)",
+		"defaultValue": "#000000",
+		"placeholder": "#000000",
+		"conditions": [{ "if": { "property": "active_tab_manager.tab_use_colour", "value": true } }]
+	},
+	{
+		"type": "checkbox",
+		"property": "active_tab_manager.tab_use_opacity",
+		"label": "Opacity",
+		"defaultValue": false
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.tab_opacity",
+		"label": "Opacity (1 to 100)",
+		"defaultValue": "100",
+		"placeholder": "100",
+		"conditions": [{ "if": { "property": "active_tab_manager.tab_use_opacity", "value": true } }]
+	},
+	{
+		"type": "checkbox",
+		"property": "active_tab_manager.tab_gradient",
+		"label": "Gradient",
+		"defaultValue": true
+	},
+	{
+		"type": "dropdown",
+		"property": "active_tab_manager.gradient_direction",
+		"label": "Gradient direction",
+		"defaultValue": "horizontal",
+		"options": [
+			{ "label": "Horizontal", "value": "horizontal" },
+			{ "label": "Vertical", "value": "vertical" }
+		],
+		"conditions": [{ "if": { "property": "active_tab_manager.tab_gradient", "value": true } }]
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.grad_start_colour",
+		"label": "Start colour (hex with #)",
+		"defaultValue": "#000000",
+		"placeholder": "#000000",
+		"conditions": [{ "if": { "property": "active_tab_manager.tab_gradient", "value": true } }]
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.grad_start_opacity",
+		"label": "Start colour opacity (1 to 100)",
+		"defaultValue": "30",
+		"placeholder": "30",
+		"conditions": [{ "if": { "property": "active_tab_manager.tab_gradient", "value": true } }]
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.grad_end_colour",
+		"label": "End colour (hex with #)",
+		"defaultValue": "#646464",
+		"placeholder": "#646464",
+		"conditions": [{ "if": { "property": "active_tab_manager.tab_gradient", "value": true } }]
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.grad_end_opacity",
+		"label": "End colour opacity (1 to 100)",
+		"defaultValue": "30",
+		"placeholder": "30",
+		"conditions": [{ "if": { "property": "active_tab_manager.tab_gradient", "value": true } }]
+	},
+	{
+		"type": "checkbox",
+		"property": "active_tab_manager.tab_use_theme",
+		"label": "Theme colour (your theme colour is the base colour)",
+		"defaultValue": true
+	},
+	{
+		"type": "separator",
+		"label": "🟠 Tab corner radius",
+		"margin": "14px 0"
+	},
+	{
+		"type": "checkbox",
+		"property": "active_tab_manager.radius_enabled",
+		"label": "Enable",
+		"defaultValue": true
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.radius",
+		"label": "Radius (0 to 20 px)",
+		"defaultValue": "8",
+		"placeholder": "8",
+		"conditions": [{ "if": { "property": "active_tab_manager.radius_enabled", "value": true } }]
+	},
+	{
+		"type": "separator",
+		"label": "➕ BONUS",
+		"margin": "14px 0"
+	},
+	{
+		"type": "checkbox",
+		"property": "active_tab_manager.pinned_colour_enabled",
+		"label": "Pinned tab background colour",
+		"defaultValue": true
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.pinned_colour",
+		"label": "Pinned colour (hex with #)",
+		"defaultValue": "#FFFFFF",
+		"placeholder": "#FFFFFF",
+		"conditions": [{ "if": { "property": "active_tab_manager.pinned_colour_enabled", "value": true } }]
+	},
+	{
+		"type": "checkbox",
+		"property": "active_tab_manager.pinned_opacity_enabled",
+		"label": "Pinned tab background opacity",
+		"defaultValue": true
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.pinned_opacity",
+		"label": "Pinned opacity (1 to 100)",
+		"defaultValue": "10",
+		"placeholder": "10",
+		"conditions": [{ "if": { "property": "active_tab_manager.pinned_opacity_enabled", "value": true } }]
+	},
+	{
+		"type": "checkbox",
+		"property": "active_tab_manager.essential_colour_enabled",
+		"label": "Essential tab background colour",
+		"defaultValue": false
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.essential_colour",
+		"label": "Essential colour (hex with #)",
+		"defaultValue": "#FFFFFF",
+		"placeholder": "#FFFFFF",
+		"conditions": [{ "if": { "property": "active_tab_manager.essential_colour_enabled", "value": true } }]
+	},
+	{
+		"type": "checkbox",
+		"property": "active_tab_manager.essential_opacity_enabled",
+		"label": "Essential tab background opacity",
+		"defaultValue": false
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.essential_opacity",
+		"label": "Essential opacity (1 to 100)",
+		"defaultValue": "10",
+		"placeholder": "10",
+		"conditions": [{ "if": { "property": "active_tab_manager.essential_opacity_enabled", "value": true } }]
+	}
+]
