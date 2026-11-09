@@ -12,12 +12,27 @@
 @property --active_tab_manager-pinned_opacity { syntax: "<number>"; inherits: true; initial-value: 10; }
 @property --active_tab_manager-essential_colour { syntax: "<color>"; inherits: true; initial-value: #ffffff; }
 @property --active_tab_manager-essential_opacity { syntax: "<number>"; inherits: true; initial-value: 10; }
+@property --active_tab_manager-pinned_grad_start_colour { syntax: "<color>"; inherits: true; initial-value: #000000; }
+@property --active_tab_manager-pinned_grad_start_opacity { syntax: "<number>"; inherits: true; initial-value: 30; }
+@property --active_tab_manager-pinned_grad_end_colour { syntax: "<color>"; inherits: true; initial-value: #646464; }
+@property --active_tab_manager-pinned_grad_end_opacity { syntax: "<number>"; inherits: true; initial-value: 30; }
+@property --active_tab_manager-essential_grad_start_colour { syntax: "<color>"; inherits: true; initial-value: #000000; }
+@property --active_tab_manager-essential_grad_start_opacity { syntax: "<number>"; inherits: true; initial-value: 30; }
+@property --active_tab_manager-essential_grad_end_colour { syntax: "<color>"; inherits: true; initial-value: #646464; }
+@property --active_tab_manager-essential_grad_end_opacity { syntax: "<number>"; inherits: true; initial-value: 30; }
+
+:root {
 
 :root {
 	--atm-alpha: calc(clamp(0, var(--active_tab_manager-tab_opacity), 100) / 100);
 	--atm-base: rgb(from var(--active_tab_manager-tab_colour) r g b / var(--atm-alpha));
 	--atm-gradient: none;
 	--atm-gradient-dir: to right;
+	--atm-pin-gradient: none;
+	--atm-pin-gradient-dir: to right;
+	--atm-ess-gradient: none;
+	--atm-ess-gradient-dir: to right;
+}
 }
 
 @media (-moz-pref("active_tab_manager.outline_enabled")) {
@@ -62,13 +77,49 @@
 }
 
 @media (-moz-pref("active_tab_manager.pinned_enabled")) {
+	@media (-moz-pref("active_tab_manager.pinned_gradient", "horizontal")), (-moz-pref("active_tab_manager.pinned_gradient", "vertical")) {
+		:root {
+			--atm-pin-gradient: linear-gradient(
+				var(--atm-pin-gradient-dir),
+				rgb(from var(--active_tab_manager-pinned_grad_start_colour) r g b / calc(clamp(0, var(--active_tab_manager-pinned_grad_start_opacity), 100) / 100)),
+				rgb(from var(--active_tab_manager-pinned_grad_end_colour) r g b / calc(clamp(0, var(--active_tab_manager-pinned_grad_end_opacity), 100) / 100))
+			);
+		}
+	}
+
+	@media (-moz-pref("active_tab_manager.pinned_gradient", "vertical")) {
+		:root {
+			--atm-pin-gradient-dir: to bottom;
+		}
+	}
+
 	.tabbrowser-tab[pinned]:not([selected], [zen-essential]) .tab-background {
-		background: rgb(from var(--active_tab_manager-pinned_colour) r g b / calc(clamp(0, var(--active_tab_manager-pinned_opacity), 100) / 100)) !important;
+		background:
+			var(--atm-pin-gradient),
+			rgb(from var(--active_tab_manager-pinned_colour) r g b / calc(clamp(0, var(--active_tab_manager-pinned_opacity), 100) / 100)) !important;
 	}
 }
 
 @media (-moz-pref("active_tab_manager.essential_enabled")) {
+	@media (-moz-pref("active_tab_manager.essential_gradient", "horizontal")), (-moz-pref("active_tab_manager.essential_gradient", "vertical")) {
+		:root {
+			--atm-ess-gradient: linear-gradient(
+				var(--atm-ess-gradient-dir),
+				rgb(from var(--active_tab_manager-essential_grad_start_colour) r g b / calc(clamp(0, var(--active_tab_manager-essential_grad_start_opacity), 100) / 100)),
+				rgb(from var(--active_tab_manager-essential_grad_end_colour) r g b / calc(clamp(0, var(--active_tab_manager-essential_grad_end_opacity), 100) / 100))
+			);
+		}
+	}
+
+	@media (-moz-pref("active_tab_manager.essential_gradient", "vertical")) {
+		:root {
+			--atm-ess-gradient-dir: to bottom;
+		}
+	}
+
 	.tabbrowser-tab[zen-essential="true"]:not([selected]) .tab-background {
-		background: rgb(from var(--active_tab_manager-essential_colour) r g b / calc(clamp(0, var(--active_tab_manager-essential_opacity), 100) / 100)) !important;
+		background:
+			var(--atm-ess-gradient),
+			rgb(from var(--active_tab_manager-essential_colour) r g b / calc(clamp(0, var(--active_tab_manager-essential_opacity), 100) / 100)) !important;
 	}
 }

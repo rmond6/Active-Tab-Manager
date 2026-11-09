@@ -127,7 +127,7 @@
 	},
 	{
 		"type": "separator",
-		"label": "➕ BONUS",
+		"label": "➕ BONUS (Pinned tab & Essential tab)",
 		"margin": "14px 0"
 	},
 	{
@@ -151,6 +151,45 @@
 		"placeholder": "10"
 	},
 	{
+		"type": "dropdown",
+		"property": "active_tab_manager.pinned_gradient",
+		"label": "Gradient",
+		"defaultValue": "none",
+		"options": [
+			{ "label": "None", "value": "none" },
+			{ "label": "Horizontal", "value": "horizontal" },
+			{ "label": "Vertical", "value": "vertical" }
+		]
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.pinned_grad_start_colour",
+		"label": "Start colour (hex)",
+		"defaultValue": "#000000",
+		"placeholder": "#000000"
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.pinned_grad_start_opacity",
+		"label": "Start colour opacity (1 to 100)",
+		"defaultValue": "30",
+		"placeholder": "30"
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.pinned_grad_end_colour",
+		"label": "End colour (hex)",
+		"defaultValue": "#646464",
+		"placeholder": "#646464"
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.pinned_grad_end_opacity",
+		"label": "End colour opacity (1 to 100)",
+		"defaultValue": "30",
+		"placeholder": "30"
+	},
+	{
 		"type": "checkbox",
 		"property": "active_tab_manager.essential_enabled",
 		"label": "Enable essential tab background",
@@ -169,5 +208,44 @@
 		"label": "Opacity (1 to 100)",
 		"defaultValue": "10",
 		"placeholder": "10"
+	},
+	{
+		"type": "dropdown",
+		"property": "active_tab_manager.essential_gradient",
+		"label": "Gradient",
+		"defaultValue": "none",
+		"options": [
+			{ "label": "None", "value": "none" },
+			{ "label": "Horizontal", "value": "horizontal" },
+			{ "label": "Vertical", "value": "vertical" }
+		]
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.essential_grad_start_colour",
+		"label": "Start colour (hex)",
+		"defaultValue": "#000000",
+		"placeholder": "#000000"
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.essential_grad_start_opacity",
+		"label": "Start colour opacity (1 to 100)",
+		"defaultValue": "30",
+		"placeholder": "30"
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.essential_grad_end_colour",
+		"label": "End colour (hex)",
+		"defaultValue": "#646464",
+		"placeholder": "#646464"
+	},
+	{
+		"type": "string",
+		"property": "active_tab_manager.essential_grad_end_opacity",
+		"label": "End colour opacity (1 to 100)",
+		"defaultValue": "30",
+		"placeholder": "30"
 	}
 ]
