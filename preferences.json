@@ -132,53 +132,41 @@
 	},
 	{
 		"type": "checkbox",
-		"property": "active_tab_manager.pinned_colour_enabled",
-		"label": "Pinned tab background colour",
+		"property": "active_tab_manager.pinned_enabled",
+		"label": "Enable pinned tab background",
 		"defaultValue": false
 	},
 	{
 		"type": "string",
 		"property": "active_tab_manager.pinned_colour",
-		"label": "Pinned colour (hex)",
+		"label": "Colour (hex)",
 		"defaultValue": "#FFFFFF",
 		"placeholder": "#FFFFFF"
 	},
 	{
-		"type": "checkbox",
-		"property": "active_tab_manager.pinned_opacity_enabled",
-		"label": "Pinned tab background opacity",
-		"defaultValue": false
-	},
-	{
 		"type": "string",
 		"property": "active_tab_manager.pinned_opacity",
-		"label": "Pinned opacity (1 to 100)",
+		"label": "Opacity (1 to 100)",
 		"defaultValue": "10",
 		"placeholder": "10"
 	},
 	{
 		"type": "checkbox",
-		"property": "active_tab_manager.essential_colour_enabled",
-		"label": "Essential tab background colour",
+		"property": "active_tab_manager.essential_enabled",
+		"label": "Enable essential tab background",
 		"defaultValue": false
 	},
 	{
 		"type": "string",
 		"property": "active_tab_manager.essential_colour",
-		"label": "Essential colour (hex)",
+		"label": "Colour (hex)",
 		"defaultValue": "#FFFFFF",
 		"placeholder": "#FFFFFF"
 	},
 	{
-		"type": "checkbox",
-		"property": "active_tab_manager.essential_opacity_enabled",
-		"label": "Essential tab background opacity",
-		"defaultValue": false
-	},
-	{
 		"type": "string",
 		"property": "active_tab_manager.essential_opacity",
-		"label": "Essential opacity (1 to 100)",
+		"label": "Opacity (1 to 100)",
 		"defaultValue": "10",
 		"placeholder": "10"
 	}
