@@ -22,8 +22,6 @@
 @property --active_tab_manager-essential_grad_end_opacity { syntax: "<number>"; inherits: true; initial-value: 30; }
 
 :root {
-
-:root {
 	--atm-alpha: calc(clamp(0, var(--active_tab_manager-tab_opacity), 100) / 100);
 	--atm-base: rgb(from var(--active_tab_manager-tab_colour) r g b / var(--atm-alpha));
 	--atm-gradient: none;
@@ -32,7 +30,6 @@
 	--atm-pin-gradient-dir: to right;
 	--atm-ess-gradient: none;
 	--atm-ess-gradient-dir: to right;
-}
 }
 
 @media (-moz-pref("active_tab_manager.outline_enabled")) {
